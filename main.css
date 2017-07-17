@@ -1,0 +1,51 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html,body{
+    position: relative;
+    width: 100%;
+    width: 100vw;
+    height: 100%;
+    height: 100vh;
+    background-color: #333; 
+}
+
+header{
+    display: flex;
+    display: -webkit-flex;
+    position: absolute;
+    top: 0px;
+    height: 55px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #50a5e2;
+    z-index: 1;
+    color: #fff;
+}
+
+main{
+    position: absolute;
+    top: 50px;
+    bottom: 0px;
+    width: 100%;
+    overflow: auto;
+    background-color: #f7f7f7;
+}
+
+main ul li{
+    padding: 20px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.load-tixing {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    text-align: center;
+    color: #ccc;
+    height: 50px;
+    line-height: 50px;
+}

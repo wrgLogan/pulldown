@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./main.css" />
+    <title>下拉刷新</title>
+</head>
+
+<body>
+    <header>下拉刷新</header>
+    <div class="load-tixing">⬇ 下拉刷新</div>
+    <main>
+        <ul>
+            <li>数据1</li>
+            <li>数据2</li>
+            <li>数据3</li>
+            <li>数据4</li>
+            <li>数据5</li>
+            <li>数据6</li>
+            <li>数据7</li>
+            <li>数据8</li>
+            <li>数据9</li>
+            <li>数据10</li>
+        </ul>
+    </main>
+
+    <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script src="./loganAnimate.js"></script>
+    <script src="./pulldown.js"></script>
+    <script>
+        $('main').pullDownLoad({
+            overBoundary: function () {
+                console.log("overBoundary");
+                $('.load-tixing').text('⬆ 松开刷新');
+            },
+            innerBoundary: function () {
+                console.log("innerBoundary");
+                $('.load-tixing').text('⬇ 下拉刷新');
+            },
+            update: function (over) {
+
+                
+                $('.load-tixing').text('正在加载...');
+                // 在这里触发数据加载，通常是调接口取数据 这里setTimeout模拟调用接口
+                setTimeout(function() {
+                    $('.load-tixing').text('刷新成功');
+                    setTimeout(function () {
+                        over();
+                    }, 500);
+                }, 3000);
+                
+            }
+        })
+    </script>
+</body>
+
+</html>
